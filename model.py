@@ -66,7 +66,7 @@ class Item(db.Model):
         return f"<Item item_id={self.item_id} item_name={self.item_name}>"
 
 
-#unsure about the db_uri, I put travels bcz I assume it's the homepage url
+#travels is database name
 def connect_to_db(flask_app, db_uri="postgresql:///travels", echo=True):
     flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
     flask_app.config["SQLALCHEMY_ECHO"] = echo
@@ -77,29 +77,15 @@ def connect_to_db(flask_app, db_uri="postgresql:///travels", echo=True):
 
     print("Connected to the db!")
 
-if __name__ == "__main__":
-    from flask import Flask
+    
 
-    app = Flask(__name__)
+if __name__ == '__main__':
+    
+    from server import app
     connect_to_db(app)
     db.create_all()
-    # test_user = User(email='test@test.test', password='test')
-    travel_date = datetime(2020, 1, 10)
-    Hawaii= Itinerary(user_destination=" Hawaii",travel_date=travel_date)
-    San_Francisco = Itinerary(user_destination= "San_Francisco", travel_date=travel_date)
- 
-    garden=Landmark(landmark_name = "garden")
-    backpack = Item(item_name="backpack")
 
-
-  
-
-    db.session.add(San_Francisco)
-    # db.session.bulk_save_objects([garden, backpack, Hawaii])
-  
-    db.session.commit()
-    data=Itinerary.query.all()
-    print(data)
+    
 
 
     

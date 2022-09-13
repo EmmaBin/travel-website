@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My travelogue</title>
+</head>
+<body>
+  {% for msg in get_flashed_messages() %}
+  <p class="flash-msg">
+    {{ msg }}
+  </p>
+{% endfor %}
+
+  <!-- This is where the main content goes. -->
+  {% block body %}
+      
+  {% endblock %}
+</body>
+</html>
