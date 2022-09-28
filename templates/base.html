@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>My travelogue</title>
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+    <link rel="stylesheet" href="../static/index.css">
+    <!-- add a few scripts to use React
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" crossorigin></script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script> -->
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
   {% for msg in get_flashed_messages() %}
   <p class="flash-msg">
     {{ msg }}
   </p>
-{% endfor %}
+  {% endfor %}
 
   <!-- This is where the main content goes. -->
   {% block body %}
+  <nav>
+    <img src="static/travelogue.png" class="logo">
+    <ul>
+      <li> 
+        <a href="/">HOME</a>
+      </li>
+      <li>
+        <a href="#">CONTACT US</a>
+      </li>
+    </ul>
+
+  </nav>
       
   {% endblock %}
 </body>

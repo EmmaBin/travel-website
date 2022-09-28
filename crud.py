@@ -16,29 +16,45 @@ def get_user_by_email(email):
     return User.query.filter(User.email == email).first()
     
 
-def create_itinerary(user_destination, travel_date):
+def create_itinerary(itinerary_name, travel_date, user):
+
+
 
     itinerary = Itinerary(
-        user_destination=user_destination,
+        user = user,
+        itinerary_name=itinerary_name,
         travel_date=travel_date
     )
     return itinerary
 
+def get_itineraries_by_user(user_id):
+
+    return Itinerary.query.filter(Itinerary.user_id == user_id)
+
 def get_itinerary_by_id(itinerary_id):
     return Itinerary.query.get(itinerary_id)
+    
+    
+def get_itinerary_by_destination(user_destination):
+    return Itinerary.query.filter(Itinerary.user_destination == user_destination).first()
 
-def create_landmark(landmark_name):
-    landmark = Landmark(landmark=landmark)
+
+
+def create_landmark(landmark_name, itinerary_id):
+    landmark = Landmark(landmark_name=landmark_name, itinerary_id= itinerary_id)
+
     return landmark
-
+# def delete_landmark(landmark_name, itinerary_id):
+#     landmark = Landmark(landmark_name=landmark_name, itinerary_id= itinerary_id)
+#     return 
 def get_landmark_by_id(landmark_id):
     return Landmark.query.get(landmark_id)
 
 def get_landmarks():
     return Landmark.query.all()
 
-def create_item(item_name):
-    item= Item(item_name=item_name)
+def create_item(item_name, itinerary_id):
+    item= Item(item_name=item_name, itinerary_id=itinerary_id)
     return item
 
 def get_item_by_id(item_id):

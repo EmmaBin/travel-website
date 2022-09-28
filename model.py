@@ -26,7 +26,7 @@ class Itinerary(db.Model):
     __tablename__= "itineraries"
 
     itinerary_id = db.Column(db.Integer, autoincrement =True, primary_key= True)
-    user_destination = db.Column(db.String)
+    itinerary_name = db.Column(db.String) # the title of the trip, like "Bay Vacay"
     travel_date= db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
