@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Check List
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="checklist">
+
+    <h2> Create My Checklist:</h2>
+    <form action="/checklist" method="POST">
+        <input type="text" class="listItem" name="item">
+        <!-- do some change here, make the button type submit so that 
+        it will submit the form and go to the checklist route -->
+        <button id="addItem" type="submit">+</button>
+        <div id="checkList-container">
+
+        </div>
+    </form>
+</div>
+
+<script src="/static/js/checklist.js"></script>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="/static/create.css">
+
+{% endblock %}
+
+{% block body %}
+
+<section class="create-div">
+    <nav>
+        <img src="static/travelogue.png" class="logo">
+        <ul>
+          <li> 
+            <a href="/">HOME</a>
+          </li>
+          <li>
+            <a href="#">CONTACT US</a>
+          </li>
+        </ul>
+    
+      </nav>
+    <video autoplay loop muted plays-inline class="back-video">
+        <source src="static/account.mp4" type="video/mp4"></source>
+      </video>
+ 
+ 
+    <div class="create-text">
+    <h2 class="create">Create a new account</h2>
+    <form action="/users" method="POST">
+      <p class="create-p">
+        Email <input type="text" name="email">
+      </p>
+  
+      <p class="create-p">
+        Password <input type="password" name="password">
+      </p>
+  
+      <p class="btn">
+        <input type="submit">
+      </p>
+    </form> 
+    </div>
+
+</section>
+
+{% endblock %}

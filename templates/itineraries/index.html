@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Saved Itinerary
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/itiindex.css">
+
+{% endblock %}
+
+{% block body %}
+<section id="hero">
+    <nav>
+        <img src="static/travelogue.png" class="logo">
+        <ul>
+          <li> 
+            <a href="/">HOME</a>
+          </li>
+          <li>
+            <a href="#">CONTACT US</a>
+          </li>
+        </ul>
+    
+      </nav>
+
+<div class="text">
+
+<h2>
+    Here is my itinerary:
+</h2>
+
+
+
+<div class="itinerary">
+    <div class="create">
+    <a href="/itineraries/new">Create a new itinerary</a>
+</div>
+
+    
+    <ul>
+        {% for itinerary in itineraries %}
+        <div class="card">
+        <li>
+            <a href="/itineraries/{{ itinerary.itinerary_id }}">
+                <p>{{ itinerary.itinerary_name }}</p>
+            </a>
+        </div>
+        </li>
+
+        <div class="date">
+            <p>{{ itinerary.travel_date }}</p>
+        </div>
+        
+    
+        {% endfor %}
+    </ul>
+
+
+   
+</div>
+</div>
+</section>
+
+{% endblock %}

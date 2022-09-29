@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block body %}
+<h2>Let Your Journey Start Here:</h2>
+    <form id="search" action="/itineraries/{{itinerary.itinerary_id}}/landmarks" class="search_destination" >
+
+      <div>
+        Search your destination: <input style=" width:500px;"type="text" id="landmark" name="destination">
+        <button type="submit">Check Nearby Landmarks</button>
+      </div>
+
+      <div>
+        <input type="button" value="Add to my Itinerary" name="Add to my Itinerary" id="itinerary">  
+      </div>
+    </form>
+
+    <div class="landmark">
+      {% for landmark in landmarks %}
+      <p>{{ landmark.landmark_name }}</p>
+      {% endfor %}
+
+
+    </div>
+   
+
+    <div class="checklist">
+      <a href="/checklist"><h2>Create a checklist</h2></a>
+    </div>
+
+    <div class="saveitinerary">
+      <a href="/itineraries"><h2>Check My Saved Itineraries</h2></a>
+    </div>
+
+
+
+<div id="map" style="height:500px; width:500px;"></div>
+<ul id="landmarks">
+  
+</ul>
+<script src="/static/js/landmarks.js"></script>
+<script src="/static/js/map.js"></script> 
+<script src="/static/js/checklist.js"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key={{maps_api_key}}&libraries=places&callback=initMap"></script>
+
+
+{% endblock %}
+
+
+
+    

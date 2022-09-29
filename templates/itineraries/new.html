@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Check List
+{% endblock %}
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div>
+<nav>
+    <img src="static/travelogue.png" class="logo">
+    <ul>
+      <li> 
+        <a href="/">HOME</a>
+      </li>
+      <li>
+        <a href="#">CONTACT US</a>
+      </li>
+    </ul>
+
+  </nav>
+<form action="/itineraries" method="POST">
+<h2>Create your itinerary:</h2>
+<input type="text" name="itinerary_name">
+
+<h2>Choose your date:</h2>
+<label for="travel_date">Travel Date:</label>
+<input type="date" id="travel_date" name="travel_date">
+<div>
+    <button type="submit">Start my journey</button>
+</div>
+
+</form>
+</div>
+
+{% endblock %}
