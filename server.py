@@ -168,6 +168,11 @@ def create_checklist():
 
     return render_template("checklist.html")
 
+@app.route("/expense")
+def track_expense():
+
+    return render_template("expense.html")
+
 
 if __name__ == "__main__":
     connect_to_db(app)
