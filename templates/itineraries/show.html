@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block body %}
 <h2>Let Your Journey Start Here:</h2>
-    <form id="search" action="/itineraries/{{itinerary.itinerary_id}}/landmarks" class="search_destination" >
+    <form id="search" action="/itineraries/{{itineraries.itinerary_id}}/landmarks" class="search_destination" >
 
       <div>
         Search your destination: <input style=" width:500px;"type="text" id="landmark" name="destination">
@@ -32,7 +32,7 @@
 
     <!-- user can track their expense -->
     <div class="expense">
-      <a href="/expense"><h2>Track My expense</h2></a>
+      <a href="/expense/{{itineraries.itinerary_id}}"><h2>Track My expense</h2></a>
     </div>
 
 

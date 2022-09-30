@@ -104,10 +104,10 @@ def show(id):
     # TODO get itinerary from database
     # also get landmarks for itinerary
     # pass everything to template and render
-    itinerary=crud.get_itinerary_by_id(id)
-    landmarks=itinerary.landmarks
+    itineraries=crud.get_itinerary_by_id(id)
+    landmarks=itineraries.landmarks
 
-    return render_template("itineraries/show.html", maps_api_key = maps_api_key, itinerary=itinerary, landmarks=landmarks)
+    return render_template("itineraries/show.html", maps_api_key = maps_api_key, itineraries=itineraries, landmarks=landmarks)
 
 @app.route("/itineraries")
 def index():
@@ -157,28 +157,31 @@ def create_checklist():
 
     return render_template("checklist.html")
 
-@app.route("/expense")
-def expense():
-    return render_template("expense.html")
+@app.route("/expense/<itinerary_id>")
+def expense(itinerary_id):
+
+    itinerary=crud.get_itinerary_by_id(itinerary_id)
+    return render_template("expense.html", itinerary=itinerary)
 
 
 @app.route("/itineraries/<itinerary_id>/expense", methods=["POST"])
 def track_expense(itinerary_id):
 
-
+    itinerary=crud.get_itinerary_by_id(itinerary_id)
       
     type= request.json.get("type") #request.json.get
     expense_activity= request.json.get("expense_activity")
     amount=request.json.get("amount")
     
 
-    expense= crud.create_expense(expense_activity, type, amount, itinerary_id)
+    expense= crud.create_expense(expense_activity, type, amount)
    
     db.session.add(expense)
     db.session.commit()
     serialized={"amount":expense.amount,
                 "type":expense.type,
-                "expense_activity":expense.expense_activity
+                "expense_activity":expense.expense_activity,
+                "itinerary_id": itinerary
                 }
     
     return jsonify(serialized)
