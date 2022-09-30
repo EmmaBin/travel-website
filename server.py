@@ -96,18 +96,7 @@ def create():
     db.session.commit()
     return redirect('/itineraries/' + str(itinerary.itinerary_id))
 
-    # # TODO security make sure user is loged in
-    # if "user_id" in session:
 
-    #     itinerary = crud.get_items
-        
-    #     print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
-    #     print(itinerary)
-    #     if session["user_id"] == itinerary.user.user_id:
-
-    #         # TODO make sure user that is loged in is the owner of the itinerary
-
-    #         return render_template("itinerary.html", itinerary = itinerary)@app.route("/saveitinerary", methods=['POST'])
 
 @app.route("/itineraries/<id>")
 def show(id):
@@ -169,9 +158,32 @@ def create_checklist():
     return render_template("checklist.html")
 
 @app.route("/expense")
-def track_expense():
-
+def expense():
     return render_template("expense.html")
+
+
+@app.route("/itineraries/<itinerary_id>/expense", methods=["POST"])
+def track_expense(itinerary_id):
+
+
+      
+    type= request.json.get("type") #request.json.get
+    expense_activity= request.json.get("expense_activity")
+    amount=request.json.get("amount")
+    
+
+    expense= crud.create_expense(expense_activity, type, amount, itinerary_id)
+   
+    db.session.add(expense)
+    db.session.commit()
+    serialized={"amount":expense.amount,
+                "type":expense.type,
+                "expense_activity":expense.expense_activity
+                }
+    
+    return jsonify(serialized)
+
+
 
 
 if __name__ == "__main__":

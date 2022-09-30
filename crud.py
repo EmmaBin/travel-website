@@ -1,5 +1,5 @@
 """CRUD Operations."""
-from model import db, User, Itinerary, Landmark, Item, connect_to_db
+from model import db, User, Itinerary, Landmark, Item, connect_to_db, Expense
 
 def create_user(email, password):
 
@@ -44,9 +44,7 @@ def create_landmark(landmark_name, itinerary_id):
     landmark = Landmark(landmark_name=landmark_name, itinerary_id= itinerary_id)
 
     return landmark
-# def delete_landmark(landmark_name, itinerary_id):
-#     landmark = Landmark(landmark_name=landmark_name, itinerary_id= itinerary_id)
-#     return 
+
 def get_landmark_by_id(landmark_id):
     return Landmark.query.get(landmark_id)
 
@@ -62,6 +60,27 @@ def get_item_by_id(item_id):
 
 def get_items():
     return Item.query.all()
+
+
+
+#add expense data
+def create_expense(expense_activity, type, amount, itinerary_id):
+    expense = Expense (expense_activity=expense_activity, type=type, amount=amount, itinerary_id= itinerary_id)
+    return expense
+
+def get_expense_by_id(expense_id):
+    return Expense.query.get(expense_id)
+
+
+#expenses by iti_id
+# def get_expense_by_iti_id(itinerary_id):
+#     return Itinerary.query.get(itinerary_id).expense
+
+#query group by type and also count the sum of each type
+
+
+
+
 
 #update and delete items?
 

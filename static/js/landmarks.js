@@ -46,7 +46,6 @@ document.querySelector("#itinerary").addEventListener("click", (e)=>{
     .then((response)=> response.json())
     .then((responseJson)=>{
 
-        console.log(responseJson.landmark_id)
         const li= document.createElement('li');
         const trash=document.createElement('button')
         //after create the button element add a class to the button called delete_landmark 

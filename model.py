@@ -33,6 +33,7 @@ class Itinerary(db.Model):
     user = db.relationship("User", back_populates="itineraries" )
     landmarks= db.relationship("Landmark", back_populates="itineraries" )
     items = db.relationship("Item", back_populates="itineraries" )
+    expense= db.relationship("Expense", back_populates="itineraries" )
 
     def __repr__(self):
         return f"<Itinerary itinerary_id={self.itinerary_id} user_destination={self.user_destination}>"
@@ -64,6 +65,22 @@ class Item(db.Model):
 
     def __repr__(self):
         return f"<Item item_id={self.item_id} item_name={self.item_name}>"
+
+class Expense(db.Model):
+
+    __tablename__="expenses"
+
+    expense_id = db.Column(db.Integer, autoincrement = True, primary_key = True)
+    itinerary_id = db.Column(db.Integer, db.ForeignKey("itineraries.itinerary_id"))
+    expense_activity= db.Column(db.String)
+    type= db.Column(db.String)
+    amount = db.Column(db.Integer)
+    
+    itineraries = db.relationship("Itinerary", back_populates="expense" )
+
+    def __repr__(self):
+        return f"<Expense expense_id={self.expense_id} expense_activity={self.expense_activity} type={self.type} amount={self.amount}>"
+
 
 
 #travels is database name
