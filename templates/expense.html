@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Expense{% endblock %}
+
+{% block head %}
+  {# ChartJS #}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+
+  {# randomColor: generate random colors #}
+  <link rel="stylesheet" href="/static/expense.css">
+  <script src="https://cdn.jsdelivr.net/npm/randomcolor@0.6.2/randomColor.js"></script>
+
+
+{% endblock %}
+
+{% block body %}
+  <h2>Jot Down My Expense</h2>
+
+  <div class="doughnut">
+  <canvas id="chart"></canvas>
+   </div>
+
+  <div class="expenses" id="expenses">
+
+    <table class="styled-table">
+      <thead>
+          <tr>
+              <th>Activity</th>
+              <th>Type</th>
+              <th>Amount</th>
+          </tr>
+      </thead>
+      <tbody>
+        {% for expense in itinerary.expenses %}
+        <tr class="expenseRow" data-expense-id="{{ expense.expense_id }}">
+          <td class="expenseActivity">{{ expense.expense_activity }}</td>
+          <td class="expenseType">{{ expense.type }}</td>
+          <td class="expenseAmount">{{ expense.amount }}</td>
+          <td>
+            <button class="deleteExpense">🗑️</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+
+
+
+  </div>
+ 
+  <form action="/itineraries/{{itinerary.itinerary_id}}/expense" method="POST" id="expenseForm">
+    
+    <input name="expense_activity"id="expense_activity" class="expense_activity" type="text" placeholder="Activity">
+
+    
+    <input name="type" class="type" id="type" type="text" placeholder="Type">
+    
+
+    
+    <input type="text" name="amount" class="amount"
+     value="" data-type="currency" placeholder="$1,000.00">
+    
+
+    <button type="submit" id="expense">Submit</button>
+    
+  </form>
+
+  <script src="/static/js/expense.js"></script>
+{% endblock %}
