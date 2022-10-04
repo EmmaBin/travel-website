@@ -31,9 +31,9 @@ class Itinerary(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
     user = db.relationship("User", back_populates="itineraries" )
-    landmarks= db.relationship("Landmark", back_populates="itineraries" )
+    landmarks= db.relationship("Landmark", back_populates="itinerary" )
     items = db.relationship("Item", back_populates="itineraries" )
-    expense= db.relationship("Expense", back_populates="itineraries" )
+    expenses = db.relationship("Expense", back_populates="itinerary" )
 
     def __repr__(self):
         return f"<Itinerary itinerary_id={self.itinerary_id} user_destination={self.user_destination}>"
@@ -47,7 +47,7 @@ class Landmark(db.Model):
     landmark_name = db.Column(db.String)
     itinerary_id = db.Column(db.Integer, db.ForeignKey("itineraries.itinerary_id"))
 
-    itineraries = db.relationship("Itinerary", back_populates="landmarks" )
+    itinerary = db.relationship("Itinerary", back_populates="landmarks" )
 
     def __repr__(self):
         return f"<Landmark landmark_id={self.landmark_id} landmark_name={self.landmark_name}>"
@@ -76,7 +76,7 @@ class Expense(db.Model):
     type= db.Column(db.String)
     amount = db.Column(db.Integer)
     
-    itineraries = db.relationship("Itinerary", back_populates="expense" )
+    itinerary = db.relationship("Itinerary", back_populates="expenses" )
 
     def __repr__(self):
         return f"<Expense expense_id={self.expense_id} expense_activity={self.expense_activity} type={self.type} amount={self.amount}>"

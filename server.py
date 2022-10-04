@@ -161,6 +161,7 @@ def create_checklist():
 def expense(itinerary_id):
 
     itinerary=crud.get_itinerary_by_id(itinerary_id)
+    
     return render_template("expense.html", itinerary=itinerary)
 
 
@@ -168,24 +169,37 @@ def expense(itinerary_id):
 def track_expense(itinerary_id):
 
     itinerary=crud.get_itinerary_by_id(itinerary_id)
-      
+    print("*"*30, request.json)
     type= request.json.get("type") #request.json.get
     expense_activity= request.json.get("expense_activity")
     amount=request.json.get("amount")
     
 
-    expense= crud.create_expense(expense_activity, type, amount)
+    expense= crud.create_expense(expense_activity, type, amount, itinerary_id )
    
     db.session.add(expense)
     db.session.commit()
     serialized={"amount":expense.amount,
                 "type":expense.type,
                 "expense_activity":expense.expense_activity,
-                "itinerary_id": itinerary
+                "itinerary_id": expense.itinerary_id,
+                "expense_id": expense.expense_id,
                 }
     
     return jsonify(serialized)
 
+
+
+
+@app.route("/expense/<expense_id>", methods=["DELETE"])
+def delete_expense(expense_id):
+
+    delete_expense = crud.get_expense_by_id(int(expense_id))
+    db.session.delete(delete_expense)
+    db.session.commit()
+    response = {"success":True}
+
+    return jsonify(response)
 
 
 

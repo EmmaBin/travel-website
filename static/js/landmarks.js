@@ -1,29 +1,3 @@
-// document.querySelector("#itinerary").addEventListener("submit", (e)=>{
-//     e.preventDefault()
-//     const formInputs =   {
-//     destination : document.querySelector('#destination').value,
-//     travel_date: document.querySelector('#travel_date').value,
-   
-//     }
-//     fetch('/saveitinerary',{
-//         method: 'POST',
-//         body: JSON.stringify(formInputs),
-//         headers: {
-//             'Content-Type': 'application/json',
-//           },
-//     })
-//     .then((response)=> response.json())
-//     .then((responseJson)=>{
-
-
-        
-//         // document.querySelector('.itinerary').insertAdjacentText=("beforeend",itinerary.user_destination)
-//         // document.querySelector('.itinerary').insertAdjacentText=("beforeend",itinerary.travel_date)
-
-
-//     });
-// });
-
 
 // get the user input destination and date display inside saveitinerary html div 
 // user can only access own database, so the endpoint is based on itinerary_id 
@@ -65,8 +39,6 @@ document.querySelector("#itinerary").addEventListener("click", (e)=>{
         document.querySelector('.landmark').appendChild(li);
 
 
-        // document.querySelector('.landmark').insertAdjacentText("beforeend",responseJson.landmark_name)
-        //???????only delete from html not from database sqlalchemy
        
 
 
