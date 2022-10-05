@@ -1,5 +1,42 @@
 {% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/savediti.css">
+
+{% endblock %}
 {% block body %}
+<!-- <div class="nav">
+<nav>
+  <img src="../static/travelogue.png" class="logo">
+  <ul>
+    <li> 
+      <a href="/">HOME</a>
+    </li>
+    <li>
+      <a href="#">CONTACT US</a>
+    </li>
+  </ul>
+
+</nav>
+</div> -->
+<section id="hero">
+  <div class="header">
+    <div class="side-nav">
+      <a href="#" class="logo">
+        <img src="../static/travelogue.png">
+      </a>
+
+
+      <ul>
+        <li><a href="/checklist"><p>Checklist</p></a></li>
+        <li><a href="/itineraries"><p>Saved Itinerary</p></a></li>
+        <li><a href="/expense/{{itineraries.itinerary_id}}"><p>Expense</p></a></li>
+      </ul>
+    </div>
+  </div>
+
+<div class="main_content">
+
 <h2>Let Your Journey Start Here:</h2>
     <form id="search" action="/itineraries/{{itineraries.itinerary_id}}/landmarks" class="search_destination" >
 
@@ -22,18 +59,7 @@
    
     
 
-    <div class="checklist">
-      <a href="/checklist"><h2>Create a checklist</h2></a>
-    </div>
 
-    <div class="saveitinerary">
-      <a href="/itineraries"><h2>Check My Saved Itineraries</h2></a>
-    </div>
-
-    <!-- user can track their expense -->
-    <div class="expense">
-      <a href="/expense/{{itineraries.itinerary_id}}"><h2>Track My expense</h2></a>
-    </div>
 
 
 
@@ -46,7 +72,8 @@
 <script src="/static/js/checklist.js"></script>
 <script async src="https://maps.googleapis.com/maps/api/js?key={{maps_api_key}}&libraries=places&callback=initMap"></script>
 
-
+</div>
+</section>
 {% endblock %}
 
 
