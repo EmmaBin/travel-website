@@ -2,7 +2,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="../static/savediti.css">
-
+<script src="https://kit.fontawesome.com/5bb9642507.js" crossorigin="anonymous"></script>
 {% endblock %}
 {% block body %}
 <!-- <div class="nav">
@@ -27,10 +27,13 @@
       </a>
 
 
-      <ul>
-        <li><a href="/checklist"><p>Checklist</p></a></li>
-        <li><a href="/itineraries"><p>Saved Itinerary</p></a></li>
-        <li><a href="/expense/{{itineraries.itinerary_id}}"><p>Expense</p></a></li>
+      <ul class="nav-links">
+        
+        <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i><p>Itinerary</p></a></li>
+        <li><a href="/expense/{{itineraries.itinerary_id}}"><i class="fa-solid fa-sack-dollar"></i><p>Expense</p></a></li>
+        <li><a href="/checklist"><i class="fa-regular fa-list-check"></i><p>Checklist</p></a></li>
+        <div class="active"></div>
+ 
       </ul>
     </div>
   </div>
