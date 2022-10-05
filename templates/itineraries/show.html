@@ -38,22 +38,29 @@
     </div>
   </div>
 
-<div class="main_content">
 
+<div class="content">
+<div class="first-content">
 <h2>Let Your Journey Start Here:</h2>
     <form id="search" action="/itineraries/{{itineraries.itinerary_id}}/landmarks" class="search_destination" >
 
       <div>
-        Search your destination: <input style=" width:500px;"type="text" id="landmark" name="destination">
-        <button type="submit">Check Nearby Landmarks</button>
+        <div class="search-bar">
+        
+
+        <input style=" width:300px;"type="text" id="landmark" name="destination">
       </div>
 
-      <div>
-        <input type="button" value="Add to my Itinerary" name="Add to my Itinerary" id="itinerary">  
+      <div class="btns">
+        <button type="submit">Check Nearby Landmarks</button>
+
+        <input type="button" value="Add to my Itinerary" name="Add to my Itinerary" id="itinerary"> 
+      </div> 
       </div>
     </form>
+  </div>
 
-
+<div class="second-content">
     <div class="landmark">
       {% for landmark in landmarks %}
       <p>{{ landmark.landmark_name }}</p>
@@ -67,6 +74,7 @@
 
 
 <div id="map" style="height:500px; width:500px;"></div>
+</div>
 <ul id="landmarks">
   
 </ul>
