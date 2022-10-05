@@ -4,13 +4,32 @@
 My Check List
 {% endblock %}
 {% block head %}
+<link rel="stylesheet" href="/static/checklist.css">
+<script src="https://kit.fontawesome.com/5bb9642507.js" crossorigin="anonymous"></script>
 
 {% endblock %}
 
 {% block body %}
-
+<div class="container">
+    <div class="header">
+        <div class="side-nav">
+          <a href="#" class="logo">
+            <img src="../static/travelogue.png">
+          </a>
+    
+    
+          <ul class="nav-links">
+            
+            <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i><p>Itinerary</p></a></li>
+            <!-- need to add iti link, pass from server.py -->
+            <li><a href="/checklist"><i class="fa-regular fa-list-check"></i><p>Checklist</p></a></li>
+            <div class="active"></div>
+     
+          </ul>
+        </div>
+      </div>
 <div class="checklist">
-
+     <div class="card">
     <h2> Create My Checklist:</h2>
     <form action="/checklist" method="POST">
         <input type="text" class="listItem" name="item">
@@ -21,6 +40,8 @@ My Check List
 
         </div>
     </form>
+</div>
+</div>
 </div>
 
 <script src="/static/js/checklist.js"></script>

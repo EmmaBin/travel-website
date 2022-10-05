@@ -43,10 +43,6 @@ function getChartData() {
 let chartColorCount = 0;
 const initialExpenseData = getChartData();
 
-console.log(initialExpenseData)
-console.log("*********");
-console.log(document.querySelectorAll('.expenseRow'));
-
 // 1. Create an array of random colors based on the number of types
 let colors = [];
 for(let i=0;i < chartColorCount; i++){
