@@ -19,7 +19,7 @@
 
 </nav>
 </div> -->
-<section id="hero">
+<section id="box">
   <div class="header">
     <div class="side-nav">
       <a href="#" class="logo">
@@ -28,65 +28,68 @@
 
 
       <ul class="nav-links">
-        
-        <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i><p>Itinerary</p></a></li>
-        <li><a href="/expense/{{itineraries.itinerary_id}}"><i class="fa-solid fa-sack-dollar"></i><p>Expense</p></a></li>
-        <li><a href="/checklist"><i class="fa-regular fa-list-check"></i><p>Checklist</p></a></li>
+
+        <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i>
+            <p>Itinerary</p>
+          </a></li>
+        <li><a href="/expense/{{itineraries.itinerary_id}}"><i class="fa-solid fa-sack-dollar"></i>
+            <p>Expense</p>
+          </a></li>
+        <li><a href="/checklist"><i class="fa-regular fa-list-check"></i>
+            <p>Checklist</p>
+          </a></li>
         <div class="active"></div>
- 
+
       </ul>
     </div>
   </div>
 
 
-<div class="content">
-<div class="first-content">
-<h2>Let My Journey Start Here:</h2>
-    <form id="search" action="/itineraries/{{itineraries.itinerary_id}}/landmarks" class="search_destination" >
+  <div class="content">
+    <div class="first-content">
+      <h2>Let My Journey Start Here:</h2>
+      <form id="search" action="/itineraries/{{itineraries.itinerary_id}}/landmarks" class="search_destination">
 
-      <div>
-        <div class="search-bar">
-        
+        <div>
+          <div class="search-bar">
 
-        <input style=" width:300px;"type="text" id="landmark" name="destination">
-      </div>
 
-      <div class="btns">
-        <button type="submit">Check Nearby Landmarks</button>
+            <input style=" width:328px;" type="text" id="landmark" name="destination">
+          </div>
 
-        <input type="button" value="Add to my Itinerary" name="Add to my Itinerary" id="itinerary"> 
-      </div> 
-      </div>
-    </form>
-  </div>
+          <div class="btns">
+            <button type="submit">Check Nearby Landmarks</button>
 
-<div class="second-content">
-    <div class="landmark">
-      {% for landmark in landmarks %}
-      <p>{{ landmark.landmark_name }}</p>
-      {% endfor %}
+            <input type="button" value="Add to my Itinerary" name="Add to my Itinerary" id="itinerary">
+          </div>
+        </div>
+      </form>
     </div>
-   
-    
+
+    <div class="second-content">
+      <div class="landmark">
+        {% for landmark in landmarks %}
+        <p>{{ landmark.landmark_name }}</p>
+        {% endfor %}
+      </div>
 
 
 
 
 
-<div id="map" style="height:500px; width:500px;"></div>
-</div>
-<ul id="landmarks">
-  
-</ul>
-<script src="/static/js/landmarks.js"></script>
-<script src="/static/js/map.js"></script> 
-<script src="/static/js/checklist.js"></script>
-<script async src="https://maps.googleapis.com/maps/api/js?key={{maps_api_key}}&libraries=places&callback=initMap"></script>
+      <div id="map" style="height:500px; width:500px;"></div>
+    </div>
 
-</div>
+    <ul id="landmarks">
+    </ul>
+
+
+    <script src="/static/js/landmarks.js"></script>
+    <script src="/static/js/map.js"></script>
+    <script src="/static/js/checklist.js"></script>
+    <script async
+      src="https://maps.googleapis.com/maps/api/js?key={{maps_api_key}}&libraries=places&callback=initMap"></script>
+
+  </div>
 </section>
 {% endblock %}
-
-
-
-    
