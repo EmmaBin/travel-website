@@ -1,13 +1,14 @@
 const allExpense = []
 
 let myChart = document.getElementById('chart')
-
+// change line 7 from const to let, the trash button from the table worked
 function listenToTrash(trashButton) {
   trashButton.addEventListener('click', () => {
-    const expenseRow = trashButton.parentElement;
+    let expenseRow = trashButton.parentElement;
     while (expenseRow && !expenseRow.className.includes('expenseRow')) {
       expenseRow = expenseRow.parentElement;
     }
+
     const expenseId = expenseRow.getAttribute('data-expense-id');
 
     fetch(`/expense/${expenseId}`, {
@@ -19,6 +20,8 @@ function listenToTrash(trashButton) {
       })
   })
 }
+
+
 document.querySelectorAll('.deleteExpense').forEach((e) => listenToTrash(e));
 
 function getChartData() {
@@ -32,7 +35,7 @@ function getChartData() {
     if (type in expenseData) {
       expenseData[type] += amount;
     } else {
-      chartColorCount ++;
+      chartColorCount++;
       expenseData[type] = amount;
     }
   });
@@ -45,8 +48,8 @@ const initialExpenseData = getChartData();
 
 // 1. Create an array of random colors based on the number of types
 let colors = [];
-for(let i=0;i < chartColorCount; i++){
-  colors[i] =  randomColor({
+for (let i = 0; i < chartColorCount; i++) {
+  colors[i] = randomColor({
     luminosity: 'bright',
     format: 'rgb'
   });
@@ -139,7 +142,7 @@ document.querySelector("#expenseForm").addEventListener('submit', (e) => {
             luminosity: 'bright',
             format: 'rgb'
           }),
-          // color = randomColor
+          
         ],
         hoverOffset: 4
       }];
