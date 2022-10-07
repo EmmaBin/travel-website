@@ -149,13 +149,33 @@ def delete_landmark(landmark_id):
 
     return jsonify(response)
 
-
 @app.route("/checklist")
-def create_checklist():
+def checklist_form():
     """add and delete item"""
     # itinerary_name = request.form.get("item")
 
     return render_template("checklist.html")
+
+
+# @app.route("/checklist", methods=['POST'])
+# def create_checklist():
+#     """add and delete item"""
+#     # submit html form
+#     itinerary_id = request.form.get("itinerary_id")
+#     print("*"*30)
+#     print(itinerary_id)
+
+
+
+#     return redirect("/checklist", itinerary_id = itinerary_id)
+
+
+
+
+
+
+
+
 
 @app.route("/expense/<itinerary_id>")
 def expense(itinerary_id):
@@ -169,7 +189,7 @@ def expense(itinerary_id):
 def track_expense(itinerary_id):
 
     itinerary=crud.get_itinerary_by_id(itinerary_id)
-    print("*"*30, request.json)
+    # use in fetch when type="json"
     type= request.json.get("type") #request.json.get
     expense_activity= request.json.get("expense_activity")
     amount=request.json.get("amount")

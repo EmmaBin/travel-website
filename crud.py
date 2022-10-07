@@ -51,6 +51,8 @@ def get_landmark_by_id(landmark_id):
 def get_landmarks():
     return Landmark.query.all()
 
+    
+
 def create_item(item_name, itinerary_id):
     item= Item(item_name=item_name, itinerary_id=itinerary_id)
     return item

@@ -10,38 +10,48 @@ My Check List
 {% endblock %}
 
 {% block body %}
+
 <div class="container">
-    <div class="header">
-        <div class="side-nav">
-          <a href="#" class="logo">
-            <img src="../static/travelogue.png">
-          </a>
-    
-    
-          <ul class="nav-links">
-            
-            <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i><p>Itinerary</p></a></li>
-            <!-- need to add expense link, pass from server.py -->
-            <li><a href="/checklist"><i class="fa-regular fa-list-check"></i><p>Checklist</p></a></li>
-            <div class="active"></div>
-     
-          </ul>
-        </div>
-      </div>
-<div class="checklist">
-     <div class="card">
-    <h2> Create My Checklist:</h2>
-    <form action="/checklist" method="POST">
+  <div class="header">
+    <div class="side-nav">
+      <a href="#" class="logo">
+        <img src="../static/travelogue.png">
+      </a>
+
+
+      <ul class="nav-links">
+
+        <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i>
+            <p>Itinerary</p>
+          </a></li>
+        <!-- need to add expense link, pass from server.py -->
+        <li><a href="/checklist"><i class="fa-regular fa-list-check"></i>
+            <p>Checklist</p>
+          </a></li>
+        <div class="active"></div>
+
+      </ul>
+    </div>
+  </div>
+
+
+
+
+  <div class="checklist">
+    <div class="card">
+      <h2> Create My Checklist:</h2>
+      <form action="/checklist">
         <input type="text" class="listItem" name="item">
+       
         <!-- do some change here, make the button type submit so that 
         it will submit the form and go to the checklist route -->
         <button id="addItem" type="submit">+</button>
         <div id="checkList-container">
 
         </div>
-    </form>
-</div>
-</div>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script src="/static/js/checklist.js"></script>

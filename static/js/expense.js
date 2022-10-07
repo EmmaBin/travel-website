@@ -93,19 +93,19 @@ document.querySelector("#expenseForm").addEventListener('submit', (e) => {
     .then((response) => response.json())
     .then((responseJson) => {
 
-      const expenseRow = document.createElement('div');
+      const expenseRow = document.createElement('tr');
       expenseRow.classList.add('expenseRow');
       expenseRow.setAttribute('data-expense-id', responseJson.expense_id)
 
-      const activityInput = document.createElement('p');
+      const activityInput = document.createElement('td');
       activityInput.classList.add('expenseActivity');
-      const typeInput = document.createElement('p')
+      const typeInput = document.createElement('td')
       typeInput.classList.add('expenseType')
-      const amountInput = document.createElement('p')
+      const amountInput = document.createElement('td')
       amountInput.classList.add('expenseAmount')
 
 
-      const trash = document.createElement('button')
+      const trash = document.createElement('td')
       trash.classList.add('deleteExpense')
       trash.innerHTML = "🗑️"
 
@@ -120,7 +120,7 @@ document.querySelector("#expenseForm").addEventListener('submit', (e) => {
       expenseRow.appendChild(amountInput);
       expenseRow.appendChild(trash);
 
-      document.querySelector(".expenses").appendChild(expenseRow)
+      document.querySelector(".styled-table").appendChild(expenseRow)
       expenseChart.data.datasets = [{
         label: 'Expenses',
         data: Object.values(getChartData()),
