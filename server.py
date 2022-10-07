@@ -1,7 +1,7 @@
 """Server for travel site app."""
 
 from sre_constants import SUCCESS
-from flask import Flask, render_template, request, flash, session, redirect, jsonify
+from flask import Flask, render_template, request, flash, session, redirect, jsonify, json
 from model import connect_to_db, db
 import crud
 import requests
@@ -149,12 +149,23 @@ def delete_landmark(landmark_id):
 
     return jsonify(response)
 
+
+
+
+
+
+
+
 @app.route("/itineraries/<itinerary_id>/checklist")
 def checklist_form(itinerary_id):
     """add and delete item"""
     # itinerary_name = request.form.get("item")
-    itinerary_id=crud.get_itinerary_by_id(itinerary_id)
-    return render_template("checklist.html", itinerary_id=itinerary_id)
+    itinerary = crud.get_itinerary_by_id(itinerary_id)
+    data = {
+        "itinerary_id": itinerary.itinerary_id,
+        "items": [{ "item_name": i.item_name, "item_id": i.item_id} for i in itinerary.items],
+    }
+    return render_template("checklist.html", data=json.htmlsafe_dumps(data))
 
 
 
@@ -162,12 +173,13 @@ def checklist_form(itinerary_id):
 def create_checklist(itinerary_id):
     """add and delete item"""
     # submit html form
-    user_item = request.form.get("item")
+    user_item = request.json.get("item_name")
     item=crud.create_item(user_item, itinerary_id)
+    itinerary_id=crud.get_itinerary_by_id(itinerary_id)
     db.session.add(item)
     db.session.commit()
     serialized ={
-        "item":item,
+        "item_name":item.item_name,
         "item_id":item.item_id
     }
 

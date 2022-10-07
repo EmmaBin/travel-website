@@ -19,7 +19,7 @@ My Check List
   <div class="header">
     <div class="side-nav">
       <a href="#" class="logo">
-        <img src="../static/travelogue.png">
+        <img src="/static/travelogue.png">
       </a>
 
 
@@ -28,8 +28,8 @@ My Check List
         <li><a href="/itineraries"><i class="fa-solid fa-plane-departure"></i>
             <p>Itinerary</p>
           </a></li>
-        <!-- need to add expense link, pass from server.py -->
-        <li><a href="/checklist"><i class="fa-regular fa-list-check"></i>
+          <!-- unable to use itinerary_id, so navbar link expense and checklist both not working -->
+            <li><a href="/checklist"><i class="fa-regular fa-list-check"></i>
             <p>Checklist</p>
           </a></li>
         <div class="active"></div>
@@ -39,25 +39,10 @@ My Check List
   </div>
 
 
-
-
+  <script id="data" type="text/json">{{data}}</script>
   <div id="checklist">
-    <!-- <div class="card">
-      <h2> Create My Checklist:</h2>
-      <form action="/checklist">
-        <input type="text" class="listItem" name="item">
-       
- 
-        <button id="addItem" type="submit">+</button> -->
-
-
-        <div id="checkList-container">
-
-        </div>
-      </form>
-    </div> 
-  </div> 
-</div>
+    <div id="checkList-container"></div>
+  </div>
 
 <!-- <script src="/static/js/checklist.js"></script> -->
 <script src="/static/js/checklist.jsx" type="text/babel"></script>
