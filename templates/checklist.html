@@ -6,6 +6,10 @@ My Check List
 {% block head %}
 <link rel="stylesheet" href="/static/checklist.css">
 <script src="https://kit.fontawesome.com/5bb9642507.js" crossorigin="anonymous"></script>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script crossorigin src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
 
 {% endblock %}
 
@@ -37,23 +41,25 @@ My Check List
 
 
 
-  <div class="checklist">
-    <div class="card">
+  <div id="checklist">
+    <!-- <div class="card">
       <h2> Create My Checklist:</h2>
       <form action="/checklist">
         <input type="text" class="listItem" name="item">
        
-        <!-- do some change here, make the button type submit so that 
-        it will submit the form and go to the checklist route -->
-        <button id="addItem" type="submit">+</button>
+ 
+        <button id="addItem" type="submit">+</button> -->
+
+
         <div id="checkList-container">
 
         </div>
       </form>
-    </div>
-  </div>
+    </div> 
+  </div> 
 </div>
 
-<script src="/static/js/checklist.js"></script>
+<!-- <script src="/static/js/checklist.js"></script> -->
+<script src="/static/js/checklist.jsx" type="text/babel"></script>
 
 {% endblock %}

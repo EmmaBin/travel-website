@@ -149,25 +149,31 @@ def delete_landmark(landmark_id):
 
     return jsonify(response)
 
-@app.route("/checklist")
-def checklist_form():
+@app.route("/itineraries/<itinerary_id>/checklist")
+def checklist_form(itinerary_id):
     """add and delete item"""
     # itinerary_name = request.form.get("item")
-
-    return render_template("checklist.html")
-
-
-# @app.route("/checklist", methods=['POST'])
-# def create_checklist():
-#     """add and delete item"""
-#     # submit html form
-#     itinerary_id = request.form.get("itinerary_id")
-#     print("*"*30)
-#     print(itinerary_id)
+    itinerary_id=crud.get_itinerary_by_id(itinerary_id)
+    return render_template("checklist.html", itinerary_id=itinerary_id)
 
 
 
-#     return redirect("/checklist", itinerary_id = itinerary_id)
+@app.route("/itineraries/<itinerary_id>/checklist", methods=['POST'])
+def create_checklist(itinerary_id):
+    """add and delete item"""
+    # submit html form
+    user_item = request.form.get("item")
+    item=crud.create_item(user_item, itinerary_id)
+    db.session.add(item)
+    db.session.commit()
+    serialized ={
+        "item":item,
+        "item_id":item.item_id
+    }
+
+
+
+    return jsonify(serialized)
 
 
 
