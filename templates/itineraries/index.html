@@ -33,7 +33,9 @@ My Saved Itinerary
 
 
 <div class="itinerary">
+  <div class="new">
     <a href="/itineraries/new">Create a new itinerary</a>
+  </div>
 
     <div class="card">
     <ul>
@@ -43,14 +45,17 @@ My Saved Itinerary
             <a href="/itineraries/{{ itinerary.itinerary_id }}">
                 <p>{{ itinerary.itinerary_name }}</p>
             </a>
-        </div>
+        
 
         
             
         </li>
+      
     
         {% endfor %}
     </ul>
+    
+  </div>
 
 
    
