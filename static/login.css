@@ -71,9 +71,12 @@
   
 }
 
-.btn:hover{
-  -webkit-text-stroke: 2px rgb(48, 60, 152);
-  color:transparent;
+.btn:hover {background-color: rgb(255, 90, 96)}
+
+.btn:active {
+  background-color: rgb(255, 90, 96);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
 .login h4{

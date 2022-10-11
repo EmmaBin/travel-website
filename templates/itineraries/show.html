@@ -2,6 +2,7 @@
 
 {% block head %}
 <link rel="stylesheet" href="../static/savediti.css">
+<link rel="stylesheet" href="../static/css/carousel.css">
 <script src="https://kit.fontawesome.com/5bb9642507.js" crossorigin="anonymous"></script>
 {% endblock %}
 {% block body %}
@@ -76,21 +77,21 @@
       <div id="map" style="height:500px; width:500px;"></div>
     </div>
 
-    <!-- <section class="carousel" aria-label="Gallery">
+    <section class="carousel" aria-label="Gallery">
       <ol id= "landmarks" class="carousel__viewport">
       </ol>
-    </section> -->
+    </section>
 
 
 
-    
-    <ol id="landmarks">
 
-    </ol>
+    <!-- <ol id="landmarks">
 
-    <script src="/static/js/landmarks.js"></script>
+    </ol> -->
+
+    <script src="/static/js/landmarks.js"></script> 
     <script src="/static/js/map.js"></script>
-    <script src="/static/js/checklist.js"></script>
+    <script src="/static/js/checklist.js"></script> 
     <script async
       src="https://maps.googleapis.com/maps/api/js?key={{maps_api_key}}&libraries=places&callback=initMap"></script>
 
