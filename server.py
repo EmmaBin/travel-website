@@ -165,7 +165,7 @@ def checklist_form(itinerary_id):
         "itinerary_id": itinerary.itinerary_id,
         "items": [{ "item_name": i.item_name, "item_id": i.item_id} for i in itinerary.items],
     }
-    return render_template("checklist.html", data=json.htmlsafe_dumps(data))
+    return render_template("checklist.html", data=json.htmlsafe_dumps(data), itinerary = itinerary)
 
 
 
