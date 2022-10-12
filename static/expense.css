@@ -144,6 +144,7 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;  
+    /* background-image: linear-gradient(rgba(57, 124, 154, 0.3),rgba(57,124,154,0.3)); */
 
 }
 
