@@ -116,7 +116,7 @@ function initMap() {
 
                 if (results[i].photos && results[i].photos.length > 0) {
                     const img = document.createElement("img");
-                    img.src=results[i].photos[0].getUrl({maxHeight: 300});
+                    img.src=results[i].photos[0].getUrl({maxHeight: 500});
 
                     carouselDiv.appendChild(img);
 
@@ -136,50 +136,3 @@ function initMap() {
 
 
 
-
-// document.querySelector('#landmarks').insertAdjacentHTML("beforeend", `<li> ${results[i].name}</li>`);
-
-// <li id="carousel__slide2" tabindex="0" class="carousel__slide">
-{/* <div class="carousel__snapper"></div> */ }
-
-{/* <a href="#carousel__slide1" class="carousel__prev">Go to previous slide</a> */ }
-{/* <a href="#carousel__slide3" class="carousel__next">Go to next slide</a> */ }
-
-{/* </li> */ }
-
-
-
-                      // //Forward and back links to next and previous slides
-                //         let backSlide = i - 1;
-                //         if (i == 0) {
-                //             backSlide = results.length - 1;
-                //         }
-                //         const back = document.createElement('a');
-                //         back.setAttribute("href", "carousel__slide" + backSlide);
-                //         back.className = "carousel__next";
-                //         back.className = "carousel__prev";
-
-                //         let forwardSlide = i + 1;
-                //         if (i == results.length - 1) {
-                //             backSlide = 0;
-                //         }
-                //         const forward = document.createElement('a');
-                //         forward.setAttribute("href", "carousel__slide" + forwardSlide);
-                //         forward.className = "carousel__next";
-
-                //         carouselDiv.appendChild(back);
-                //         carouselDiv.appendChild(forward);
-
-              
-
-                // link.addEventListener('click', (e)=>{
-                //     e.preventDefault();
-                //     new google.maps.Marker({position: results[i].geometry.location,
-                //         title: results[i].name,
-
-                //         map: map})
-                // });
-
-                //Append the anchor tag to the carousel div
-                // carouselDiv.appendChild(link);
-                //     li.appendChild(link)
