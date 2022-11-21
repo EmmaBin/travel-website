@@ -7,6 +7,7 @@ function ChecklistComponent(){
 
         const [createdItems, setCreatedItems] = React.useState(initialData.items)
 
+        //solve the problem of not displaying user input
         function onChange(event) {
             setItem(event.target.value);
         }

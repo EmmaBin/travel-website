@@ -74,17 +74,7 @@ def get_expense_by_id(expense_id):
     return Expense.query.get(expense_id)
 
 
-#expenses by iti_id
-# def get_expense_by_iti_id(itinerary_id):
-#     return Itinerary.query.get(itinerary_id).expense
 
-#query group by type and also count the sum of each type
-
-
-
-
-
-#update and delete items?
 
 
 
